@@ -14,5 +14,8 @@ router.route('/signup')
 // router.route('/u/:id')
 //     .get()
 
+router.route('/leetcode')
+    .get(userController.getLeetcodeData);
+
 
 export default router;

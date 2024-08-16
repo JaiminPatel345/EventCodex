@@ -1,15 +1,17 @@
-import express from 'express'
-import mongoose, { mongo } from 'mongoose'
-import { platform, type } from 'os'
 
-const Event = new mongoose.Schema({
+import mongoose from 'mongoose'
+
+const eventSchema = new mongoose.Schema({
     name: String,
     date: Date,
     platform: {
         type: String,
         enum: {
-            values: ["LEETCODE", "CODECHEF", "CODEFORCES", "ATCODER", "GFG", "HACKERRANK"],
+            values: ["LEETCODE", "CODECHEF", "CODEFORCES", "ATCODER", "GFG", "HACKERRANK", "HACKEREARTH", "CODENINJA"],
             message: '{VALUE} is not supported'
         }
     }
-})
+});
+
+const Event = mongoose.model('Event', eventSchema);
+export default Event;
